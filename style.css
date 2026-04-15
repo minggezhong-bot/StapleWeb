@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: white;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav {
+  position: sticky;
+  top: 0;
+  display: flex;
+  gap: 24px;
+  padding: 20px 24px;
+  background: white;
+  border-bottom: 1px solid black;
+}
+
+.nav a {
+  color: black;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+.page {
+  padding: 32px 24px 60px;
+}
+
+h1 {
+  margin: 0 0 12px 0;
+  font-size: 40px;
+  font-weight: 400;
+}
+
+.intro {
+  max-width: 720px;
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 40px;
+}
+
+.section {
+  max-width: 760px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.grid img {
+  width: 100%;
+  display: block;
+  border: 1px solid black;
+}
+
+#sketch-holder {
+  width: 100%;
+  min-height: 80vh;
+  border: 1px solid black;
+}
