@@ -3,26 +3,292 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Archive</title>
+  <title>ARCHIVE — Staple Web</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .archive-page {
+      padding: 96px 24px 48px;
+    }
+
+    .archive-title {
+      font-size: 56px;
+      line-height: 1;
+      margin: 0 0 20px 0;
+      font-weight: 400;
+    }
+
+    .archive-intro {
+      max-width: 980px;
+      font-size: 18px;
+      line-height: 1.5;
+      margin: 0 0 28px 0;
+    }
+
+    .archive-link-block {
+      margin: 0 0 40px 0;
+      padding: 16px 0 20px 0;
+      border-top: 1px solid #111;
+      border-bottom: 1px solid #111;
+    }
+
+    .archive-link-label {
+      margin: 0 0 10px 0;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .archive-link {
+      display: inline-block;
+      font-size: 28px;
+      line-height: 1.2;
+      text-decoration: none;
+      border-bottom: 1px solid #111;
+      padding-bottom: 2px;
+    }
+
+    .archive-link:hover {
+      opacity: 0.6;
+    }
+
+    .archive-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px 28px;
+    }
+
+    .archive-item {
+      display: block;
+    }
+
+    .archive-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid #111;
+    }
+
+    .archive-caption {
+      font-size: 14px;
+      line-height: 1.45;
+      margin-top: 10px;
+    }
+
+    .archive-number {
+      display: inline-block;
+      min-width: 3.2em;
+    }
+
+    @media (max-width: 900px) {
+      .archive-page {
+        padding: 84px 16px 36px;
+      }
+
+      .archive-title {
+        font-size: 36px;
+      }
+
+      .archive-intro {
+        font-size: 16px;
+      }
+
+      .archive-link {
+        font-size: 22px;
+      }
+
+      .archive-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+    }
+  </style>
 </head>
 <body>
 
   <nav class="nav">
-    <a href="index.html">Home</a>
-    <a href="interaction.html">Interaction</a>
-    <a href="archive.html">Archive</a>
-    <a href="typeface.html">Typeface</a>
+    <a href="index.html">START</a>
+    <a href="directory.html">DIRECTORY</a>
+    <a href="archive.html">ARCHIVE</a>
+    <a href="map.html">MAP</a>
+    <a href="clipboard.html">CLIPBOARD</a>
   </nav>
 
-  <main class="page">
-    <h1>Archive</h1>
-    <p class="intro">Photographs of poles, traces, and interventions.</p>
+  <main class="archive-page">
+    <h1 class="archive-title">ARCHIVE</h1>
 
-    <section class="grid">
-      <img src="assets/images/pole-01.jpg" alt="Utility pole detail" />
-      <img src="assets/images/pole-02.jpg" alt="Stapled poem on pole" />
-      <img src="assets/images/pole-03.jpg" alt="Pole surface close-up" />
+    <p class="archive-intro">
+      Photographs, scans, videos, and collected traces from utility poles in New Haven.
+    </p>
+
+    <div class="archive-link-block">
+      <p class="archive-link-label">3D Scan Library</p>
+      <a
+        class="archive-link"
+        href="https://poly.cam/library"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Open Polycam Library
+      </a>
+    </div>
+
+    <section class="archive-grid">
+
+      <div class="archive-item">
+        <img src="assets/images/01.jpg" alt="Archive image 01">
+        <p class="archive-caption"><span class="archive-number">01</span> The Unconscious City Archive</p>
+      </div>
+
+      <div class="archive-item">
+        <img src="assets/images/02.jpg" alt="Archive image 02">
+        <p class="archive-caption"><span class="archive-number">02</span> The city never sleeps</p>
+      </div>
+
+      <div class="archive-item">
+        <img src="assets/images/03.jpg" alt="Archive image 03">
+        <p class="archive-caption"><span class="archive-number">03</span> yet forgets without mercy</p>
+      </div>
+
+      <div class="archive-item">
+        <img src="assets/images/04.jpg" alt="Archive image 04">
+        <p class="archive-caption"><span class="archive-number">04</span> Each utility pole remembers</p>
+      </div>
+
+      <div class="archive-item">
+        <img src="assets/images/05.jpg" alt="Archive image 05">
+        <p class="archive-caption"><span class="archive-number">05</span> what we have allowed to fade</p>
+      </div>
+
+      <div class="archive-item">
+        <img src="assets/images/06.jpg" alt="Archive image 06">
+        <p class="archive-caption"><span class="archive-number">06</span> fragments stapled in passing</p>
+      </div>
+
+      <div class="archive-item">
+        <img src="assets/images/07.jpg" alt="Archive image 07">
+        <p class="archive-caption"><span class="archive-number">07</span> voices posted without permission</p>
+      </div>
+
+      <div class="archive-item">
+        <img src="assets/images/08.jpg" alt="Archive image 08">
+        <p class="archive-caption"><span class="archive-number">08</span> This is not an AD</p>
+      </div>
+
+      <div class="archive-item">
+        <img src="assets/images/09.jpg" alt="Archive image 09">
+        <p class="archive-caption"><span class="archive-number">09</span> Staple my words to time</p>
+      </div>
+
+      <div class="archive-item">
+        <img src="assets/images/10.jpg" alt="Archive image 10">
+        <p class="archive-caption"><span class="archive-number">10</span> Temporary forever</p>
+      </div>
+
+      <div class="archive-item">
+        <img src="assets/images/11.jpg" alt="Archive image 11">
+        <p class="archive-caption"><span class="archive-number">11</span> Signal lost</p>
+      </div>
+
+      <div class="archive-item">
+        <img src="assets/images/12.jpg" alt="Archive image 12">
+        <p class="archive-caption"><span class="archive-number">12</span> Poles remember what we forget</p>
+      </div>
+
+      <div class="archive-item">
+        <img src="assets/images/13.jpg" alt="Archive image 13">
+        <p class="archive-caption"><span class="archive-number">13</span> Rust is memory</p>
+      </div>
+
+      <div class="archive-item">
+        <img src="assets/images/14.jpg" alt="Archive image 14">
+        <p class="archive-caption"><span class="archive-number">14</span> POST NO BILLS someone wrote</p>
+      </div>
+
+      <div class="archive-item">
+        <img src="assets/images/15.jpg" alt="Archive image 15">
+        <p class="archive-caption"><span class="archive-number">15</span> But something was always posted anyway</p>
+      </div>
+
+      <div class="archive-item">
+        <img src="assets/images/16.jpg" alt="Archive image 16">
+        <p class="archive-caption"><span class="archive-number">16</span> Urgent! Call now!</p>
+      </div>
+
+      <div class="archive-item">
+        <img src="assets/images/17.jpg" alt="Archive image 17">
+        <p class="archive-caption"><span class="archive-number">17</span> Tonight only!</p>
+      </div>
+
+      <div class="archive-item">
+        <img src="assets/images/18.jpg" alt="Archive image 18">
+        <p class="archive-caption"><span class="archive-number">18</span> Paper insisted</p>
+      </div>
+
+      <div class="archive-item">
+        <img src="assets/images/19.jpg" alt="Archive image 19">
+        <p class="archive-caption"><span class="archive-number">19</span> Rain refused</p>
+      </div>
+
+      <div class="archive-item">
+        <img src="assets/images/20.jpg" alt="Archive image 20">
+        <p class="archive-caption"><span class="archive-number">20</span> Now only rust repeats the message</p>
+      </div>
+
+      <div class="archive-item">
+        <img src="assets/images/21.jpg" alt="Archive image 21">
+        <p class="archive-caption"><span class="archive-number">21</span> Every staple is a pulse</p>
+      </div>
+
+      <div class="archive-item">
+        <img src="assets/images/22.jpg" alt="Archive image 22">
+        <p class="archive-caption"><span class="archive-number">22</span> a small puncture in the surface of time</p>
+      </div>
+
+      <div class="archive-item">
+        <img src="assets/images/23.jpg" alt="Archive image 23">
+        <p class="archive-caption"><span class="archive-number">23</span> detach, hold, release</p>
+      </div>
+
+      <div class="archive-item">
+        <img src="assets/images/24.jpg" alt="Archive image 24">
+        <p class="archive-caption"><span class="archive-number">24</span> STAPLE MY WORDS TO TIME</p>
+      </div>
+
+      <div class="archive-item">
+        <img src="assets/images/25.jpg" alt="Archive image 25">
+        <p class="archive-caption"><span class="archive-number">25</span> Metal enters wood</p>
+      </div>
+
+      <div class="archive-item">
+        <img src="assets/images/26.jpg" alt="Archive image 26">
+        <p class="archive-caption"><span class="archive-number">26</span> Wood holds.</p>
+      </div>
+
+      <div class="archive-item">
+        <img src="assets/images/27.jpg" alt="Archive image 27">
+        <p class="archive-caption"><span class="archive-number">27</span> Once, this was a tree</p>
+      </div>
+
+      <div class="archive-item">
+        <img src="assets/images/28.jpg" alt="Archive image 28">
+        <p class="archive-caption"><span class="archive-number">28</span> Now it carries announcements</p>
+      </div>
+
+      <div class="archive-item">
+        <img src="assets/images/29.jpg" alt="Archive image 29">
+        <p class="archive-caption"><span class="archive-number">29</span> layer after layer</p>
+      </div>
+
+      <div class="archive-item">
+        <img src="assets/images/30.jpg" alt="Archive image 30">
+        <p class="archive-caption"><span class="archive-number">30</span> bark turned bulletin</p>
+      </div>
+
+      <div class="archive-item">
+        <img src="assets/images/31.jpg" alt="Archive image 31">
+        <p class="archive-caption"><span class="archive-number">31</span> grain turned archive</p>
+      </div>
+
     </section>
   </main>
 

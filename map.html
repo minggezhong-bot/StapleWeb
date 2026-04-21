@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAP — Staple Web</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .map-page {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .map-stage {
+      position: absolute;
+      inset: 68px 0 0 0; /* 给顶部导航留位置 */
+      overflow: hidden;
+      cursor: crosshair;
+      background: #111;
+    }
+
+    .map-layer {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transition: opacity 0.9s ease;
+    }
+
+    .map-layer.active {
+      opacity: 1;
+    }
+
+    .map-instruction {
+      position: absolute;
+      left: 24px;
+      bottom: 18px;
+      z-index: 30;
+      color: white;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      mix-blend-mode: difference;
+      pointer-events: none;
+    }
+
+    .magnifier {
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.95);
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 40;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.18);
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(0px);
+    }
+
+    .magnifier.visible {
+      opacity: 1;
+    }
+
+    .magnifier-image {
+      position: absolute;
+      inset: 0;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      transform-origin: top left;
+    }
+
+    @media (max-width: 900px) {
+      .map-stage {
+        inset: 60px 0 0 0;
+      }
+
+      .magnifier {
+        width: 150px;
+        height: 150px;
+      }
+
+      .map-instruction {
+        left: 16px;
+        bottom: 14px;
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html">START</a>
+    <a href="directory.html">DIRECTORY</a>
+    <a href="archive.html">ARCHIVE</a>
+    <a href="map.html">MAP</a>
+    <a href="clipboard.html">CLIPBOARD</a>
+  </nav>
+
+  <main class="map-page">
+    <div class="map-stage" id="mapStage">
+      <div
+        class="map-layer active"
+        id="map1"
+        style="background-image: url('assets/map/map1.jpg');"
+      ></div>
+
+      <div
+        class="map-layer"
+        id="map2"
+        style="background-image: url('assets/map/map2.jpg');"
+      ></div>
+
+      <div class="magnifier" id="magnifier">
+        <div class="magnifier-image" id="magnifierImage"></div>
+      </div>
+
+      <div class="map-instruction">
+        Click to switch maps · Move the mouse to inspect details
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const mapStage = document.getElementById("mapStage");
+    const map1 = document.getElementById("map1");
+    const map2 = document.getElementById("map2");
+    const magnifier = document.getElementById("magnifier");
+    const magnifierImage = document.getElementById("magnifierImage");
+
+    let activeMap = 1;
+    const zoomScale = 2.4;
+
+    function getCurrentImageUrl() {
+      return activeMap === 1
+        ? "assets/map/map1.jpg"
+        : "assets/map/map2.jpg";
+    }
+
+    function updateMagnifierImage() {
+      magnifierImage.style.backgroundImage = `url('${getCurrentImageUrl()}')`;
+    }
+
+    updateMagnifierImage();
+
+    mapStage.addEventListener("click", () => {
+      if (activeMap === 1) {
+        map1.classList.remove("active");
+        map2.classList.add("active");
+        activeMap = 2;
+      } else {
+        map2.classList.remove("active");
+        map1.classList.add("active");
+        activeMap = 1;
+      }
+
+      updateMagnifierImage();
+    });
+
+    mapStage.addEventListener("mousemove", (e) => {
+      const rect = mapStage.getBoundingClientRect();
+
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const percentX = x / rect.width;
+      const percentY = y / rect.height;
+
+      magnifier.classList.add("visible");
+      magnifier.style.left = `${x}px`;
+      magnifier.style.top = `${y}px`;
+
+      const magnifierW = magnifier.offsetWidth;
+      const magnifierH = magnifier.offsetHeight;
+
+      magnifierImage.style.width = `${rect.width}px`;
+      magnifierImage.style.height = `${rect.height}px`;
+
+      magnifierImage.style.backgroundSize = `${rect.width * zoomScale}px ${rect.height * zoomScale}px`;
+
+      const bgPosX = -(percentX * rect.width * zoomScale - magnifierW / 2);
+      const bgPosY = -(percentY * rect.height * zoomScale - magnifierH / 2);
+
+      magnifierImage.style.backgroundPosition = `${bgPosX}px ${bgPosY}px`;
+    });
+
+    mapStage.addEventListener("mouseenter", () => {
+      magnifier.classList.add("visible");
+    });
+
+    mapStage.addEventListener("mouseleave", () => {
+      magnifier.classList.remove("visible");
+    });
+  </script>
+</body>
+</html>

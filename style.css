@@ -2,27 +2,46 @@
   box-sizing: border-box;
 }
 
-body {
+html, body {
   margin: 0;
-  background: white;
-  color: black;
+  padding: 0;
+  background: #ffffff;
+  color: #111111;
   font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
 .nav {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
-  gap: 24px;
-  padding: 20px 24px;
-  background: white;
-  border-bottom: 1px solid black;
+  gap: 22px;
+  padding: 16px 24px;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid #111;
+  z-index: 1000;
 }
 
 .nav a {
-  color: black;
-  text-decoration: none;
-  font-size: 14px;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 1;
 }
 
 .nav a:hover {
@@ -30,42 +49,276 @@ body {
 }
 
 .page {
-  padding: 32px 24px 60px;
+  min-height: 100vh;
 }
 
-h1 {
-  margin: 0 0 12px 0;
-  font-size: 40px;
+.page-stage {
+  padding-top: 68px;
+}
+
+.page-standard {
+  padding: 96px 24px 48px;
+}
+
+.page-title {
+  font-size: 42px;
   font-weight: 400;
+  margin: 0 0 14px 0;
+  line-height: 1;
 }
 
-.intro {
-  max-width: 720px;
+.page-intro {
+  max-width: 760px;
   font-size: 18px;
   line-height: 1.5;
-  margin-bottom: 40px;
+  margin: 0 0 32px 0;
 }
 
 .section {
-  max-width: 760px;
-  font-size: 16px;
-  line-height: 1.6;
+  margin-top: 28px;
 }
 
-.grid {
+.two-col {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
 
-.grid img {
-  width: 100%;
-  display: block;
-  border: 1px solid black;
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid #111;
+  padding: 16px;
+  min-height: 120px;
+}
+
+.meta {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+}
+
+.note {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.full-center {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 24px 40px;
+  text-align: center;
+}
+
+.transition-text {
+  max-width: 900px;
+  font-size: 30px;
+  line-height: 1.4;
+  margin: 0 auto;
+}
+
+.enter-link {
+  display: inline-block;
+  margin-top: 28px;
+  border: 1px solid #111;
+  padding: 10px 16px;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.enter-link:hover {
+  background: #111;
+  color: #fff;
 }
 
 #sketch-holder {
   width: 100%;
-  min-height: 80vh;
-  border: 1px solid black;
+  height: calc(100vh - 68px);
+  min-height: calc(100vh - 68px);
+  position: relative;
+  overflow: visible;
+  background: #fff;
+}
+
+/* p5 生成的 input / button */
+#sketch-holder input,
+#sketch-holder button {
+  position: absolute;
+  z-index: 20;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  border: 1px solid #111;
+  background: #fff;
+  color: #111;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+#sketch-holder input {
+  padding: 8px 12px;
+  height: 38px;
+  outline: none;
+}
+
+#sketch-holder input::placeholder {
+  color: rgba(0, 0, 0, 0.32);
+}
+
+#sketch-holder button {
+  padding: 8px 14px;
+  height: 38px;
+  cursor: pointer;
+}
+
+#sketch-holder button:hover {
+  background: #111;
+  color: #fff;
+}
+
+.index-pole-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 75vh;
+  padding: 20px 24px 60px;
+}
+
+.index-pole {
+  width: 280px;
+  min-height: 900px;
+  border: 1px solid #111;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: center;
+}
+
+.poem-link {
+  font-size: 22px;
+  line-height: 1.3;
+  text-align: center;
+  cursor: pointer;
+}
+
+.poem-link:hover {
+  text-decoration: underline;
+}
+
+.background-poems {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bg-poem {
+  position: absolute;
+  font-size: 22px;
+  opacity: 0.08;
+  white-space: nowrap;
+}
+
+.content-layer {
+  position: relative;
+  z-index: 2;
+}
+
+.archive-item img {
+  border: 1px solid #111;
+}
+
+.archive-caption {
+  font-size: 13px;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+.clipboard-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.clip-note {
+  border: 1px solid #111;
+  padding: 16px;
+  min-height: 140px;
+}
+
+.map-box {
+  border: 1px solid #111;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  padding: 24px;
+  text-align: center;
+}
+
+.small {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .two-col,
+  .grid-2,
+  .grid-3,
+  .clipboard-list {
+    grid-template-columns: 1fr;
+  }
+
+  .transition-text {
+    font-size: 24px;
+    max-width: 92vw;
+  }
+
+  .index-pole {
+    width: 86vw;
+    min-height: auto;
+  }
+
+  .nav {
+    gap: 14px;
+    padding: 14px 16px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .page-stage {
+    padding-top: 60px;
+  }
+
+  #sketch-holder {
+    height: calc(100vh - 60px);
+    min-height: calc(100vh - 60px);
+  }
+
+  .page-standard {
+    padding: 84px 16px 36px;
+  }
+
+  .page-title {
+    font-size: 32px;
+  }
+
+  .page-intro {
+    font-size: 16px;
+  }
 }
